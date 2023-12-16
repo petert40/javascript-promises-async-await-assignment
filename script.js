@@ -43,5 +43,37 @@
 // 4. Using the chosen approach (promise chaining or async/await), convert the response to json and return the data in its entirety
 
 
+//using Async / Await / Fetch
+async function getCatFacts (num) {
+  try {
+    let url = `https://catfact.ninja/facts?limit=${num}`
+    let response = await fetch(url)
+    let data = await response.json()
+    return data
+
+  } catch (e) {
+    console.error(e)
+    return null
+  }
+
+}
+
+
+//Promises
+// function getCatFacts (num) {
+
+//   let data = fetch(`https://catfact.ninja/facts?limit=${num}`)
+//     .then(response => response.json())
+//     .then(value => value)
+//     .catch(error => {
+//       console.log(error)
+//       return null
+//     })
+
+//   return data
+// }
 
 //END OF ASSIGNMENT
+
+
+
